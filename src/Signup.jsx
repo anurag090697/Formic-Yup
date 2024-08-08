@@ -19,7 +19,8 @@ function Signup() {
       .required("Enter Your FullName"),
     email: Yup.string().email("Invalid email format").required("Enter Email"),
     password: Yup.string()
-      .oneOf(["Sleep@247"], "Password must be Sl__p@24_")
+      .oneOf(["Sleep@247"], "Password Invalid")
+      .resolve("Password must be Sl__p@24_")
       .required("Password must be Sl__p@24_"),
     confirmpassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Password doesn’t match")

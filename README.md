@@ -1,3 +1,5 @@
+<!-- @format -->
+
 Certainly! Below is a detailed `README.md` file tailored for your project, focusing on setting up the form with Formik and Yup, deploying on Vercel, and other essential details.
 
 ---
@@ -16,6 +18,7 @@ This project demonstrates a simple and robust sign-up form built with React, uti
 ## Form Validation
 
 The form consists of four fields:
+
 - **Name**: Required, with a minimum length of 2 characters and a maximum of 25 characters.
 - **Email**: Required, must be a valid email format.
 - **Password**: Required, must exactly match `Sleep@247`.
@@ -23,47 +26,13 @@ The form consists of four fields:
 
 The submit button is disabled until all fields are valid.
 
-## Installation and Setup
-
-### Step 1: Clone the Repository
-
-Clone this repository to your local machine:
-
-```bash
-git clone https://github.com/yourusername/signup-form-formik-yup.git
-```
-
-Navigate into the project directory:
-
-```bash
-cd signup-form-formik-yup
-```
-
-### Step 2: Install Dependencies
-
-Make sure all necessary dependencies are installed:
-
-```bash
-npm install
-```
-
-### Step 3: Running the Application
-
-Start the development server:
-
-```bash
-npm start
-```
-
-The application will be accessible at `http://localhost:3000`.
-
 ## Deployment on Vercel
 
-This project is deployed on Vercel for easy access and sharing. 
+This project is deployed on Vercel for easy access and sharing.
 
 ## Hosted Link
 
-Click Here
+[Click Here](https://formic-yup.vercel.app/)
 
 ## Usage
 
@@ -108,8 +77,6 @@ If you'd like to contribute to this project:
 4. Commit your changes (`git commit -m 'Add some feature'`).
 5. Push to the branch (`git push origin feature-branch`).
 6. Open a pull request.
-
-
 
 ## Contact
 
