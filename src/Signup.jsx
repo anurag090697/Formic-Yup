@@ -1,7 +1,14 @@
 /** @format */
 
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import {
+  Formik,
+  Form,
+  Field,
+  ErrorMessage,
+  FieldArray,
+  useFormikContext,
+} from "formik";
 import * as Yup from "yup";
 
 function Signup() {
@@ -19,11 +26,13 @@ function Signup() {
       .required("Enter Your FullName"),
     email: Yup.string().email("Invalid email format").required("Enter Email"),
     password: Yup.string()
-      .oneOf(["Sleep@247"], "Password Invalid")
+      // .oneOf(["Sleep@247"], "Password must be Sl__p@24_")
       .resolve("Password must be Sl__p@24_")
-      .required("Password must be Sl__p@24_"),
+      .matches("Sleep@247", "Password must be Sl__p@24_")
+      .required("Enter Password"),
     confirmpassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Password doesn’t match")
+      // .matches(Yup.ref("password"), "Password doesn’t match")
       .required("Confirm password"),
   });
 
@@ -35,21 +44,23 @@ function Signup() {
   };
 
   return (
-    <div className='bg-white p-4 border-2 rounded-l-lg border-sky-500 shadow-xl shadow-lime-900 w-full lg:w-1/2'>
+    <div className='bg-white p-4 rounded-l-lg w-full lg:w-1/2'>
+      <h3 className='font-medium text-xl text-sky-600 p-2'>Welcome</h3>
       <Formik
         initialValues={initialValues}
         validationSchema={validation}
         onSubmit={handleSubmit}
       >
-        {({ isValid, isSubmitting }) => (
+        {({ isValid, isSubmitting, values }) => (
           <Form className='flex flex-col gap-2 items-center justify-center'>
-            <div className='rounded-lg relative text-center text-sm font-medium w-full'>
+            <div className='rounded-lg lg:rounded-lg relative text-center text-xs md:text-sm font-medium w-full'>
               <label
                 htmlFor='name'
                 className='absolute left-3.5 top-1 text-lime-800'
               >
                 Name
               </label>
+              {/* {console.log(values)} */}
               <Field
                 type='text'
                 id='name'
@@ -64,7 +75,7 @@ function Signup() {
               />
             </div>
 
-            <div className='rounded-lg relative text-center text-sm font-medium w-full'>
+            <div className='rounded-lg relative text-center text-xs md:text-sm font-medium w-full'>
               <label
                 htmlFor='email'
                 className='absolute left-3.5 top-1 text-lime-800'
@@ -85,7 +96,7 @@ function Signup() {
               />
             </div>
 
-            <div className='rounded-lg relative text-center text-sm font-medium w-full'>
+            <div className='rounded-lg relative text-center text-xs md:text-sm font-medium w-full'>
               <label
                 htmlFor='password'
                 className='absolute left-3.5 top-1 text-lime-800'
@@ -106,7 +117,7 @@ function Signup() {
               />
             </div>
 
-            <div className='rounded-lg relative text-center text-sm font-medium w-full'>
+            <div className='rounded-lg relative text-center text-xs md:text-sm font-medium w-full'>
               <label
                 htmlFor='confirmpassword'
                 className='absolute left-3.5 top-1 text-lime-800'
